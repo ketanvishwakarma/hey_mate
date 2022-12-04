@@ -22,7 +22,7 @@ class TodoLocalSourceImpl implements TodoLocalSource {
 
   @override
   Future<void> update(TodoDto todoDto) async {
-    await todoDto.save();
+    await _todoBox.put(todoDto.id, todoDto);
   }
 
   @override
@@ -32,6 +32,7 @@ class TodoLocalSourceImpl implements TodoLocalSource {
 
   @override
   Stream<List<TodoDto>> watchTodoDto() {
+    
     return _todoBox.watch().map((_) => _todoBox.values.toList());
   }
 }
