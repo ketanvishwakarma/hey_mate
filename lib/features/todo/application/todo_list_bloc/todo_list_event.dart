@@ -7,6 +7,12 @@ abstract class TodoListEvent extends Equatable {
   List<Object> get props => [];
 }
 
+class TodoListViewChanged extends TodoListEvent {
+  const TodoListViewChanged({required this.isGridView});
+
+  final bool isGridView;
+}
+
 class TodoListWatchRequested extends TodoListEvent {
   const TodoListWatchRequested();
 }
