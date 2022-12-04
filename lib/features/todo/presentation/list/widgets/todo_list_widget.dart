@@ -9,11 +9,21 @@ class TodoListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<TodoListBloc, TodoListState>(
-      builder: (context, state) {
-        return SliverPadding(
-          padding: const EdgeInsets.all(SizeConstants.bodyPadding),
-          sliver: SliverGrid(
+    return SliverPadding(
+      padding: const EdgeInsets.all(SizeConstants.bodyPadding),
+      sliver: BlocBuilder<TodoListBloc, TodoListState>(
+        buildWhen: (previous, current) =>
+            previous.todoList.length != current.todoList.length ||
+            current.isGridView != previous.isGridView,
+        builder: (context, state) {
+          if (state.todoList.isEmpty) {
+            return const SliverToBoxAdapter(
+              child: Center(
+                child: Text('Todo list is empty'),
+              ),
+            );
+          }
+          return SliverGrid(
             gridDelegate: state.isGridView
                 ? const SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: 200,
@@ -35,9 +45,9 @@ class TodoListWidget extends StatelessWidget {
                 );
               },
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }
