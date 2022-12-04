@@ -15,9 +15,6 @@ class TodoListBloc extends Bloc<TodoListEvent, TodoListState> {
     on<TodoListViewChanged>(_onTodoListViewChanged);
     on<TodoListWatchRequested>(_onTodoListWatchRequested);
     on<TodoListUpdated>(_onTodoListUpdated);
-    on<TodoListTodoChanged>(_onTodoListTodoChanged);
-    on<TodoListTodoStartRequested>(_onTodoListTodoStartRequested);
-    on<TodoListTodoPauseRequested>(_onTodoListTodoPauseRequested);
   }
 
   final TodoRepository _todoRepository;
@@ -28,7 +25,9 @@ class TodoListBloc extends Bloc<TodoListEvent, TodoListState> {
       return;
     }
     _todoListSubscription = _todoRepository.watchAllTodo().listen((todoList) {
-      add(TodoListUpdated(todoList));
+      if (state.todoList.length != todoList.length) {
+        add(TodoListUpdated(todoList));
+      }
     });
   }
 
@@ -53,27 +52,6 @@ class TodoListBloc extends Bloc<TodoListEvent, TodoListState> {
     _listenTodoList();
   }
 
-  FutureOr<void> _onTodoListTodoChanged(
-    TodoListTodoChanged event,
-    Emitter<TodoListState> emit,
-  ) {}
-
-  FutureOr<void> _onTodoListTodoStartRequested(
-    TodoListTodoStartRequested event,
-    Emitter<TodoListState> emit,
-  ) {}
-
-  FutureOr<void> _onTodoListTodoPauseRequested(
-    TodoListTodoPauseRequested event,
-    Emitter<TodoListState> emit,
-  ) {}
-
-  @override
-  Future<void> close() {
-    _todoListSubscription?.cancel();
-    return super.close();
-  }
-
   FutureOr<void> _onTodoListUpdated(
     TodoListUpdated event,
     Emitter<TodoListState> emit,
@@ -84,5 +62,11 @@ class TodoListBloc extends Bloc<TodoListEvent, TodoListState> {
         todoList: event.todoList,
       ),
     );
+  }
+
+  @override
+  Future<void> close() {
+    _todoListSubscription?.cancel();
+    return super.close();
   }
 }
