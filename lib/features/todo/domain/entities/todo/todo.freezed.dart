@@ -21,6 +21,7 @@ mixin _$Todo {
   String get description => throw _privateConstructorUsedError;
   int get remainingDurationInSeconds => throw _privateConstructorUsedError;
   TodoStatus get status => throw _privateConstructorUsedError;
+  bool get isTimerRunning => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TodoCopyWith<Todo> get copyWith => throw _privateConstructorUsedError;
@@ -36,7 +37,8 @@ abstract class $TodoCopyWith<$Res> {
       String title,
       String description,
       int remainingDurationInSeconds,
-      TodoStatus status});
+      TodoStatus status,
+      bool isTimerRunning});
 }
 
 /// @nodoc
@@ -57,6 +59,7 @@ class _$TodoCopyWithImpl<$Res, $Val extends Todo>
     Object? description = null,
     Object? remainingDurationInSeconds = null,
     Object? status = null,
+    Object? isTimerRunning = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -79,6 +82,10 @@ class _$TodoCopyWithImpl<$Res, $Val extends Todo>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as TodoStatus,
+      isTimerRunning: null == isTimerRunning
+          ? _value.isTimerRunning
+          : isTimerRunning // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -94,7 +101,8 @@ abstract class _$$_TodoCopyWith<$Res> implements $TodoCopyWith<$Res> {
       String title,
       String description,
       int remainingDurationInSeconds,
-      TodoStatus status});
+      TodoStatus status,
+      bool isTimerRunning});
 }
 
 /// @nodoc
@@ -111,6 +119,7 @@ class __$$_TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res, _$_Todo>
     Object? description = null,
     Object? remainingDurationInSeconds = null,
     Object? status = null,
+    Object? isTimerRunning = null,
   }) {
     return _then(_$_Todo(
       id: null == id
@@ -133,6 +142,10 @@ class __$$_TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res, _$_Todo>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as TodoStatus,
+      isTimerRunning: null == isTimerRunning
+          ? _value.isTimerRunning
+          : isTimerRunning // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -145,7 +158,8 @@ class _$_Todo implements _Todo {
       required this.title,
       required this.description,
       required this.remainingDurationInSeconds,
-      required this.status});
+      required this.status,
+      this.isTimerRunning = false});
 
   @override
   final String id;
@@ -157,10 +171,13 @@ class _$_Todo implements _Todo {
   final int remainingDurationInSeconds;
   @override
   final TodoStatus status;
+  @override
+  @JsonKey()
+  final bool isTimerRunning;
 
   @override
   String toString() {
-    return 'Todo(id: $id, title: $title, description: $description, remainingDurationInSeconds: $remainingDurationInSeconds, status: $status)';
+    return 'Todo(id: $id, title: $title, description: $description, remainingDurationInSeconds: $remainingDurationInSeconds, status: $status, isTimerRunning: $isTimerRunning)';
   }
 
   @override
@@ -176,12 +193,14 @@ class _$_Todo implements _Todo {
                     remainingDurationInSeconds) ||
                 other.remainingDurationInSeconds ==
                     remainingDurationInSeconds) &&
-            (identical(other.status, status) || other.status == status));
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.isTimerRunning, isTimerRunning) ||
+                other.isTimerRunning == isTimerRunning));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, title, description, remainingDurationInSeconds, status);
+  int get hashCode => Object.hash(runtimeType, id, title, description,
+      remainingDurationInSeconds, status, isTimerRunning);
 
   @JsonKey(ignore: true)
   @override
@@ -196,7 +215,8 @@ abstract class _Todo implements Todo {
       required final String title,
       required final String description,
       required final int remainingDurationInSeconds,
-      required final TodoStatus status}) = _$_Todo;
+      required final TodoStatus status,
+      final bool isTimerRunning}) = _$_Todo;
 
   @override
   String get id;
@@ -208,6 +228,8 @@ abstract class _Todo implements Todo {
   int get remainingDurationInSeconds;
   @override
   TodoStatus get status;
+  @override
+  bool get isTimerRunning;
   @override
   @JsonKey(ignore: true)
   _$$_TodoCopyWith<_$_Todo> get copyWith => throw _privateConstructorUsedError;

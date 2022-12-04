@@ -22,13 +22,14 @@ class TodoDtoAdapter extends TypeAdapter<TodoDto> {
       description: fields[2] as String,
       remainingDurationInSeconds: fields[3] as int,
       status: fields[4] as String,
+      isTimerRunning: fields[5] as bool,
     );
   }
 
   @override
   void write(BinaryWriter writer, TodoDto obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(6)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -38,7 +39,9 @@ class TodoDtoAdapter extends TypeAdapter<TodoDto> {
       ..writeByte(3)
       ..write(obj.remainingDurationInSeconds)
       ..writeByte(4)
-      ..write(obj.status);
+      ..write(obj.status)
+      ..writeByte(5)
+      ..write(obj.isTimerRunning);
   }
 
   @override

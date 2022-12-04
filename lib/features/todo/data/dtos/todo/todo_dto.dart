@@ -11,6 +11,7 @@ class TodoDto extends HiveObject {
     this.description = '',
     this.remainingDurationInSeconds = 600,
     this.status = 'Todo',
+    this.isTimerRunning = false,
   });
 
   factory TodoDto.fromTodo(Todo todo) {
@@ -19,7 +20,8 @@ class TodoDto extends HiveObject {
       title: todo.title,
       description: todo.description,
       remainingDurationInSeconds: todo.remainingDurationInSeconds,
-      status: todo.status.toString(),
+      status: todo.status.name,
+      isTimerRunning: todo.isTimerRunning,
     );
   }
 
@@ -37,4 +39,7 @@ class TodoDto extends HiveObject {
 
   @HiveField(4)
   String status;
+
+  @HiveField(5)
+  bool isTimerRunning;
 }

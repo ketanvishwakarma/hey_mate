@@ -12,6 +12,7 @@ class Todo with _$Todo {
     required String description,
     required int remainingDurationInSeconds,
     required TodoStatus status,
+    @Default(false) bool isTimerRunning,
   }) = _Todo;
 
   factory Todo.fromTodoDto(TodoDto todoDto) {
@@ -20,7 +21,8 @@ class Todo with _$Todo {
       title: todoDto.title,
       description: todoDto.description,
       remainingDurationInSeconds: todoDto.remainingDurationInSeconds,
-      status: todoDto.status.fromString(todoDto.status),
+      status: todoDto.status.fromString,
+      isTimerRunning: todoDto.isTimerRunning,
     );
   }
 }
