@@ -1,4 +1,5 @@
 import 'package:hive/hive.dart';
+import 'package:todo/features/todo/domain/entities/todo/todo.dart';
 
 part 'todo_dto.g.dart';
 
@@ -12,22 +13,28 @@ class TodoDto extends HiveObject {
     this.status = 'Todo',
   });
 
+  factory TodoDto.fromTodo(Todo todo) {
+    return TodoDto(
+      id: todo.id,
+      title: todo.title,
+      description: todo.description,
+      remainingDurationInSeconds: todo.remainingDurationInSeconds,
+      status: todo.status.toString(),
+    );
+  }
+
   @HiveField(0)
   String id;
+
   @HiveField(1)
   String title;
+
   @HiveField(2)
   String description;
+
   @HiveField(3)
   int remainingDurationInSeconds;
+
   @HiveField(4)
   String status;
-}
-
-extension DurationExtension on int {
-  String get toDurationString {
-    final minutes = (this / 60).floor().toString().padLeft(2, '0');
-    final seconds = (this % 60).toString().padLeft(2, '0');
-    return '${minutes}M : ${seconds}S';
-  }
 }

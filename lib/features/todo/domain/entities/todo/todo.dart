@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:todo/features/todo/data/dtos/todo/todo_dto.dart';
-import 'package:todo/features/todo/domain/todo_status/todo_status.dart';
+import 'package:todo/features/todo/domain/enums/todo_status/todo_status.dart';
 
 part 'todo.freezed.dart';
 
@@ -10,7 +10,7 @@ class Todo with _$Todo {
     required String id,
     required String title,
     required String description,
-    required String remainingDuration,
+    required int remainingDurationInSeconds,
     required TodoStatus status,
   }) = _Todo;
 
@@ -19,8 +19,16 @@ class Todo with _$Todo {
       id: todoDto.id,
       title: todoDto.title,
       description: todoDto.description,
-      remainingDuration: todoDto.remainingDurationInSeconds.toDurationString,
+      remainingDurationInSeconds: todoDto.remainingDurationInSeconds,
       status: todoDto.status.fromString(todoDto.status),
     );
+  }
+}
+
+extension DurationExtension on int {
+  String get toDurationString {
+    final minutes = (this / 60).floor().toString().padLeft(2, '0');
+    final seconds = (this % 60).toString().padLeft(2, '0');
+    return '${minutes}M : ${seconds}S';
   }
 }

@@ -19,7 +19,7 @@ mixin _$Todo {
   String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  String get remainingDuration => throw _privateConstructorUsedError;
+  int get remainingDurationInSeconds => throw _privateConstructorUsedError;
   TodoStatus get status => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -35,7 +35,7 @@ abstract class $TodoCopyWith<$Res> {
       {String id,
       String title,
       String description,
-      String remainingDuration,
+      int remainingDurationInSeconds,
       TodoStatus status});
 }
 
@@ -55,7 +55,7 @@ class _$TodoCopyWithImpl<$Res, $Val extends Todo>
     Object? id = null,
     Object? title = null,
     Object? description = null,
-    Object? remainingDuration = null,
+    Object? remainingDurationInSeconds = null,
     Object? status = null,
   }) {
     return _then(_value.copyWith(
@@ -71,10 +71,10 @@ class _$TodoCopyWithImpl<$Res, $Val extends Todo>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      remainingDuration: null == remainingDuration
-          ? _value.remainingDuration
-          : remainingDuration // ignore: cast_nullable_to_non_nullable
-              as String,
+      remainingDurationInSeconds: null == remainingDurationInSeconds
+          ? _value.remainingDurationInSeconds
+          : remainingDurationInSeconds // ignore: cast_nullable_to_non_nullable
+              as int,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -93,7 +93,7 @@ abstract class _$$_TodoCopyWith<$Res> implements $TodoCopyWith<$Res> {
       {String id,
       String title,
       String description,
-      String remainingDuration,
+      int remainingDurationInSeconds,
       TodoStatus status});
 }
 
@@ -109,7 +109,7 @@ class __$$_TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res, _$_Todo>
     Object? id = null,
     Object? title = null,
     Object? description = null,
-    Object? remainingDuration = null,
+    Object? remainingDurationInSeconds = null,
     Object? status = null,
   }) {
     return _then(_$_Todo(
@@ -125,10 +125,10 @@ class __$$_TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res, _$_Todo>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      remainingDuration: null == remainingDuration
-          ? _value.remainingDuration
-          : remainingDuration // ignore: cast_nullable_to_non_nullable
-              as String,
+      remainingDurationInSeconds: null == remainingDurationInSeconds
+          ? _value.remainingDurationInSeconds
+          : remainingDurationInSeconds // ignore: cast_nullable_to_non_nullable
+              as int,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -144,7 +144,7 @@ class _$_Todo implements _Todo {
       {required this.id,
       required this.title,
       required this.description,
-      required this.remainingDuration,
+      required this.remainingDurationInSeconds,
       required this.status});
 
   @override
@@ -154,13 +154,13 @@ class _$_Todo implements _Todo {
   @override
   final String description;
   @override
-  final String remainingDuration;
+  final int remainingDurationInSeconds;
   @override
   final TodoStatus status;
 
   @override
   String toString() {
-    return 'Todo(id: $id, title: $title, description: $description, remainingDuration: $remainingDuration, status: $status)';
+    return 'Todo(id: $id, title: $title, description: $description, remainingDurationInSeconds: $remainingDurationInSeconds, status: $status)';
   }
 
   @override
@@ -172,14 +172,16 @@ class _$_Todo implements _Todo {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.remainingDuration, remainingDuration) ||
-                other.remainingDuration == remainingDuration) &&
+            (identical(other.remainingDurationInSeconds,
+                    remainingDurationInSeconds) ||
+                other.remainingDurationInSeconds ==
+                    remainingDurationInSeconds) &&
             (identical(other.status, status) || other.status == status));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, title, description, remainingDuration, status);
+      runtimeType, id, title, description, remainingDurationInSeconds, status);
 
   @JsonKey(ignore: true)
   @override
@@ -193,7 +195,7 @@ abstract class _Todo implements Todo {
       {required final String id,
       required final String title,
       required final String description,
-      required final String remainingDuration,
+      required final int remainingDurationInSeconds,
       required final TodoStatus status}) = _$_Todo;
 
   @override
@@ -203,7 +205,7 @@ abstract class _Todo implements Todo {
   @override
   String get description;
   @override
-  String get remainingDuration;
+  int get remainingDurationInSeconds;
   @override
   TodoStatus get status;
   @override
