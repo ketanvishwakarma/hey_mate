@@ -22,7 +22,9 @@ class DurationAndButtonWidget extends StatelessWidget {
         children: [
           DurationWidget(todo: todo),
           const Gap(),
-          const StartPauseButton(),
+          StartPauseButton(
+            todo: todo,
+          ),
         ],
       );
     } else {
@@ -36,7 +38,9 @@ class DurationAndButtonWidget extends StatelessWidget {
               thickness: 2,
             ),
           ),
-          const StartPauseButton(),
+          StartPauseButton(
+            todo: todo,
+          ),
         ],
       );
     }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo/features/todo/application/todo/todo_bloc.dart';
 import 'package:todo/features/todo/domain/entities/todo/todo.dart';
 
 class DurationWidget extends StatelessWidget {
@@ -11,9 +13,16 @@ class DurationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      todo.remainingDurationInSeconds.toDurationString,
-      style: Theme.of(context).textTheme.subtitle1,
+    return BlocBuilder<TodoBloc, TodoState>(
+      buildWhen: (previous, current) =>
+          previous.todo.remainingDurationInSeconds !=
+          current.todo.remainingDurationInSeconds,
+      builder: (context, state) {
+        return Text(
+          state.todo.remainingDurationInSeconds.toDurationString,
+          style: Theme.of(context).textTheme.subtitle1,
+        );
+      },
     );
   }
 }

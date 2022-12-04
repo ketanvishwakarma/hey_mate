@@ -58,8 +58,8 @@ class CreateTodoFormWidget extends StatelessWidget {
                 if (_formKey.currentState?.validate() ?? false) {
                   context.read<TodoAddBloc>().add(
                         TodoAddRequested(
-                          title: _titleController.text,
-                          description: _descriptionController.text,
+                          title: _titleController.text.trim(),
+                          description: _descriptionController.text.trim(),
                         ),
                       );
                 }
