@@ -5,6 +5,7 @@ import 'package:todo/features/todo/data/dtos/todo/todo_dto.dart';
 abstract class TodoLocalSource {
   Future<void> add(TodoDto todoDto);
   Future<void> update(TodoDto todoDto);
+  Stream<List<TodoDto>> watchTodoDto();
 }
 
 @Injectable(as: TodoLocalSource)
@@ -21,5 +22,10 @@ class TodoLocalSourceImpl implements TodoLocalSource {
   @override
   Future<void> update(TodoDto todoDto) async {
     await todoDto.save();
+  }
+
+  @override
+  Stream<List<TodoDto>> watchTodoDto() {
+    return _todoBox.watch().map((_) => _todoBox.values.toList());
   }
 }

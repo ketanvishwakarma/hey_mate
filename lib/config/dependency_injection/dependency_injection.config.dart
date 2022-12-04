@@ -10,7 +10,11 @@ import 'package:hive/hive.dart' as _i6;
 import 'package:hive_flutter/hive_flutter.dart' as _i3;
 import 'package:injectable/injectable.dart' as _i2;
 import 'package:todo/config/dependency_injection/modules/storage_module.dart'
+    as _i11;
+import 'package:todo/features/todo/application/todo_add_bloc/todo_add_bloc.dart'
     as _i9;
+import 'package:todo/features/todo/application/todo_list_bloc/todo_list_bloc.dart'
+    as _i10;
 import 'package:todo/features/todo/data/dtos/todo/todo_dto.dart' as _i4;
 import 'package:todo/features/todo/data/local_sources/todo_local_source.dart'
     as _i5;
@@ -41,8 +45,12 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i5.TodoLocalSourceImpl(gh<_i6.Box<_i4.TodoDto>>()));
     gh.factory<_i7.TodoRepository>(
         () => _i8.TodoRepositoryImp(gh<_i5.TodoLocalSource>()));
+    gh.factory<_i9.TodoAddBloc>(
+        () => _i9.TodoAddBloc(gh<_i7.TodoRepository>()));
+    gh.factory<_i10.TodoListBloc>(
+        () => _i10.TodoListBloc(gh<_i7.TodoRepository>()));
     return this;
   }
 }
 
-class _$StorageModule extends _i9.StorageModule {}
+class _$StorageModule extends _i11.StorageModule {}
