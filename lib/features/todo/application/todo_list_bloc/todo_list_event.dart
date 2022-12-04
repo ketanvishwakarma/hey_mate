@@ -11,6 +11,15 @@ class TodoListWatchRequested extends TodoListEvent {
   const TodoListWatchRequested();
 }
 
+class TodoListUpdated extends TodoListEvent {
+  const TodoListUpdated(this.todoList);
+
+  final List<Todo> todoList;
+
+  @override
+  List<Object> get props => [todoList];
+}
+
 class TodoListTodoChanged extends TodoListEvent {
   const TodoListTodoChanged(this.todo);
 

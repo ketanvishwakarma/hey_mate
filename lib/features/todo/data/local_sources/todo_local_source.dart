@@ -5,6 +5,7 @@ import 'package:todo/features/todo/data/dtos/todo/todo_dto.dart';
 abstract class TodoLocalSource {
   Future<void> add(TodoDto todoDto);
   Future<void> update(TodoDto todoDto);
+  List<TodoDto> loadAllTodoDto();
   Stream<List<TodoDto>> watchTodoDto();
 }
 
@@ -22,6 +23,11 @@ class TodoLocalSourceImpl implements TodoLocalSource {
   @override
   Future<void> update(TodoDto todoDto) async {
     await todoDto.save();
+  }
+
+  @override
+  List<TodoDto> loadAllTodoDto() {
+    return _todoBox.values.toList();
   }
 
   @override

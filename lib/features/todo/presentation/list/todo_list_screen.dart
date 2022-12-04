@@ -73,7 +73,7 @@ class BuildTodoList extends StatelessWidget {
                 mainAxisSpacing: SizeConstants.bodyPadding,
               ),
               delegate: SliverChildBuilderDelegate(
-                childCount: 30,
+                childCount: state.todoList.length,
                 (context, index) {
                   return Card(
                     child: Padding(

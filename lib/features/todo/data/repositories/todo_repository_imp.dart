@@ -23,6 +23,12 @@ class TodoRepositoryImp implements TodoRepository {
   }
 
   @override
+  List<Todo> loadAllTodo() {
+    final todoDtos = _todoLocalSource.loadAllTodoDto();
+    return todoDtos.map(Todo.fromTodoDto).toList();
+  }
+
+  @override
   Stream<List<Todo>> watchAllTodo() {
     return _todoLocalSource.watchTodoDto().map((todoDtoList) {
       return todoDtoList.map(Todo.fromTodoDto).toList();
