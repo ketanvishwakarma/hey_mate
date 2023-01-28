@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo/config/dependency_injection/dependency_injection.dart';
-import 'package:todo/constants/size_constants.dart';
-import 'package:todo/features/todo/application/todo_add_bloc/todo_add_bloc.dart';
-import 'package:todo/features/todo/presentation/add/widgets/create_todo_form_widget.dart';
+import 'package:hey_mate/config/dependency_injection/dependency_injection.dart';
+import 'package:hey_mate/constants/size_constants.dart';
+import 'package:hey_mate/features/todo/application/todo_add_bloc/todo_add_bloc.dart';
+import 'package:hey_mate/features/todo/presentation/add/widgets/create_todo_form_widget.dart';
 
 class AddTodoScreen extends StatelessWidget {
   const AddTodoScreen({super.key});

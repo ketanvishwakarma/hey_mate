@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo/constants/size_constants.dart';
+import 'package:hey_mate/constants/size_constants.dart';
 
 class Gap extends StatelessWidget {
   const Gap({

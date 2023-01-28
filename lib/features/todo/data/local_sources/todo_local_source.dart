@@ -1,6 +1,6 @@
+import 'package:hey_mate/features/todo/data/dtos/todo/todo_dto.dart';
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
-import 'package:todo/features/todo/data/dtos/todo/todo_dto.dart';
 
 abstract class TodoLocalSource {
   Future<void> add(TodoDto todoDto);

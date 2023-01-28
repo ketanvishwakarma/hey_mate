@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo/features/todo/application/todo_list_bloc/todo_list_bloc.dart';
+import 'package:hey_mate/features/todo/application/todo_list_bloc/todo_list_bloc.dart';
 
 class TodoViewToggleButton extends StatelessWidget {
   const TodoViewToggleButton({

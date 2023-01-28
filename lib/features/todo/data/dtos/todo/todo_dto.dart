@@ -1,5 +1,5 @@
+import 'package:hey_mate/features/todo/domain/entities/todo/todo.dart';
 import 'package:hive/hive.dart';
-import 'package:todo/features/todo/domain/entities/todo/todo.dart';
 
 part 'todo_dto.g.dart';
 

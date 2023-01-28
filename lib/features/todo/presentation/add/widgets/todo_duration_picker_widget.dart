@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:todo/constants/app_constants.dart';
+import 'package:hey_mate/constants/app_constants.dart';
 
 class TodoDurationPickerWidget extends StatefulWidget {
   const TodoDurationPickerWidget({

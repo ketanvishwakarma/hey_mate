@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:todo/common_widgets/gap.dart';
-import 'package:todo/config/dependency_injection/dependency_injection.dart';
-import 'package:todo/constants/size_constants.dart';
-import 'package:todo/features/todo/application/todo/todo_bloc.dart';
-import 'package:todo/features/todo/domain/entities/todo/todo.dart';
-import 'package:todo/features/todo/domain/enums/todo_status/todo_status.dart';
-import 'package:todo/features/todo/domain/repositories/todo_repository.dart';
-import 'package:todo/features/todo/presentation/list/widgets/duration_and_button_widget.dart';
+import 'package:hey_mate/common_widgets/gap.dart';
+import 'package:hey_mate/config/dependency_injection/dependency_injection.dart';
+import 'package:hey_mate/constants/size_constants.dart';
+import 'package:hey_mate/features/todo/application/todo/todo_bloc.dart';
+import 'package:hey_mate/features/todo/domain/entities/todo/todo.dart';
+import 'package:hey_mate/features/todo/domain/enums/todo_status/todo_status.dart';
+import 'package:hey_mate/features/todo/domain/repositories/todo_repository.dart';
+import 'package:hey_mate/features/todo/presentation/list/widgets/duration_and_button_widget.dart';
 
 class TodoTile extends StatelessWidget {
   const TodoTile({
@@ -46,7 +46,7 @@ class TodoTile extends StatelessWidget {
                         Flexible(
                           child: Text(
                             todo.title,
-                            style: textTheme.headline6,
+                            style: textTheme.titleLarge,
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,
                           ),
@@ -79,7 +79,7 @@ class TodoTile extends StatelessWidget {
                     ),
                     Text(
                       todo.description,
-                      style: textTheme.bodyText1!.copyWith(
+                      style: textTheme.bodyLarge!.copyWith(
                         fontWeight: FontWeight.normal,
                       ),
                       overflow: TextOverflow.ellipsis,

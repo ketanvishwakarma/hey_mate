@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo/common_widgets/gap.dart';
-import 'package:todo/features/todo/application/todo_add_bloc/todo_add_bloc.dart';
-import 'package:todo/features/todo/presentation/add/widgets/todo_duration_picker_widget.dart';
-import 'package:todo/utils/validations.dart';
+import 'package:hey_mate/common_widgets/gap.dart';
+import 'package:hey_mate/features/todo/application/todo_add_bloc/todo_add_bloc.dart';
+import 'package:hey_mate/features/todo/presentation/add/widgets/todo_duration_picker_widget.dart';
+import 'package:hey_mate/utils/validations.dart';
 
 class CreateTodoFormWidget extends StatelessWidget {
   CreateTodoFormWidget({
@@ -41,7 +41,7 @@ class CreateTodoFormWidget extends StatelessWidget {
           ),
           Text(
             'Duration',
-            style: textTheme.headline6,
+            style: textTheme.titleLarge,
           ),
           TodoDurationPickerWidget(
             onDurationSelected: (duration) {
@@ -66,7 +66,7 @@ class CreateTodoFormWidget extends StatelessWidget {
               },
               child: Text(
                 'Create',
-                style: textTheme.headline6?.copyWith(
+                style: textTheme.titleLarge?.copyWith(
                   color: Colors.white,
                 ),
               ),

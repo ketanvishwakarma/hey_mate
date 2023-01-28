@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:todo/common_widgets/gap.dart';
-import 'package:todo/features/todo/domain/entities/todo/todo.dart';
-import 'package:todo/features/todo/presentation/list/widgets/duration_widget.dart';
-import 'package:todo/features/todo/presentation/list/widgets/start_pause_button.dart';
+import 'package:hey_mate/common_widgets/gap.dart';
+import 'package:hey_mate/features/todo/domain/entities/todo/todo.dart';
+import 'package:hey_mate/features/todo/presentation/list/widgets/duration_widget.dart';
+import 'package:hey_mate/features/todo/presentation/list/widgets/start_pause_button.dart';
 
 class DurationAndButtonWidget extends StatelessWidget {
   const DurationAndButtonWidget({

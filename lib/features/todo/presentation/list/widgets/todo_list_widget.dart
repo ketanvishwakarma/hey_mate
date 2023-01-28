@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo/constants/size_constants.dart';
-import 'package:todo/features/todo/application/todo_list_bloc/todo_list_bloc.dart';
-import 'package:todo/features/todo/presentation/list/widgets/todo_tile.dart';
+import 'package:hey_mate/constants/size_constants.dart';
+import 'package:hey_mate/features/todo/application/todo_list_bloc/todo_list_bloc.dart';
+import 'package:hey_mate/features/todo/presentation/list/widgets/todo_tile.dart';
 
 class TodoListWidget extends StatelessWidget {
   const TodoListWidget({super.key});

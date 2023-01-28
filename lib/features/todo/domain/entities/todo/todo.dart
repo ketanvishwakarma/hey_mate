@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:todo/features/todo/data/dtos/todo/todo_dto.dart';
-import 'package:todo/features/todo/domain/enums/todo_status/todo_status.dart';
+import 'package:hey_mate/features/todo/data/dtos/todo/todo_dto.dart';
+import 'package:hey_mate/features/todo/domain/enums/todo_status/todo_status.dart';
 
 part 'todo.freezed.dart';
 

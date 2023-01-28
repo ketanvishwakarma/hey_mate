@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo/features/todo/application/todo/todo_bloc.dart';
-import 'package:todo/features/todo/domain/entities/todo/todo.dart';
-import 'package:todo/features/todo/domain/enums/todo_status/todo_status.dart';
+import 'package:hey_mate/features/todo/application/todo/todo_bloc.dart';
+import 'package:hey_mate/features/todo/domain/entities/todo/todo.dart';
+import 'package:hey_mate/features/todo/domain/enums/todo_status/todo_status.dart';
 
 class StartPauseButton extends StatelessWidget {
   const StartPauseButton({
