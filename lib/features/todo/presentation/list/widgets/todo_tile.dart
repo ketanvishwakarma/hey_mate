@@ -14,11 +14,9 @@ class TodoTile extends StatelessWidget {
   const TodoTile({
     super.key,
     required this.todo,
-    required this.isGrid,
   });
 
   final Todo todo;
-  final bool isGrid;
 
   @override
   Widget build(BuildContext context) {
@@ -32,69 +30,53 @@ class TodoTile extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(SizeConstants.bodyPadding),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Flexible(
-                flex: 2,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Flexible(
-                          child: Text(
-                            todo.title,
-                            style: textTheme.titleLarge,
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 1,
-                          ),
-                        ),
-                        const Gap(),
-                        BlocBuilder<TodoBloc, TodoState>(
-                          // buildWhen: (previous, current) =>
-                          //     previous.todo.status != current.todo.status,
-                          builder: (context, state) {
-                            switch (state.todo.status) {
-                              case TodoStatus.done:
-                                return const FaIcon(
-                                  FontAwesomeIcons.circleCheck,
-                                  color: Colors.green,
-                                );
-                              case TodoStatus.inProgress:
-                                return const FaIcon(
-                                  FontAwesomeIcons.circleNotch,
-                                  color: Colors.blue,
-                                );
-                              case TodoStatus.todo:
-                                return const FaIcon(
-                                  FontAwesomeIcons.circle,
-                                  color: Colors.red,
-                                );
-                            }
-                          },
-                        ),
-                      ],
-                    ),
-                    Text(
-                      todo.description,
-                      style: textTheme.bodyLarge!.copyWith(
-                        fontWeight: FontWeight.normal,
-                      ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                    child: Text(
+                      todo.title,
+                      style: textTheme.titleLarge,
                       overflow: TextOverflow.ellipsis,
-                      maxLines: 4,
+                      maxLines: 1,
                     ),
-                  ],
-                ),
+                  ),
+                  const Gap(),
+                  BlocBuilder<TodoBloc, TodoState>(
+                    builder: (context, state) {
+                      switch (state.todo.status) {
+                        case TodoStatus.done:
+                          return const FaIcon(
+                            FontAwesomeIcons.circleCheck,
+                            color: Colors.green,
+                          );
+                        case TodoStatus.inProgress:
+                          return const FaIcon(
+                            FontAwesomeIcons.circleNotch,
+                            color: Colors.blue,
+                          );
+                        case TodoStatus.todo:
+                          return const FaIcon(
+                            FontAwesomeIcons.circle,
+                            color: Colors.red,
+                          );
+                      }
+                    },
+                  ),
+                ],
               ),
-              Flexible(
-                flex: 2,
-                child: DurationAndButtonWidget(
-                  todo: todo,
-                  isGridView: isGrid,
+              const Gap(height: 4),
+              Text(
+                todo.description,
+                style: textTheme.bodyLarge!.copyWith(
+                  fontWeight: FontWeight.normal,
                 ),
+                overflow: TextOverflow.ellipsis,
+                maxLines: 4,
               ),
+              DurationAndButtonWidget(todo: todo),
             ],
           ),
         ),

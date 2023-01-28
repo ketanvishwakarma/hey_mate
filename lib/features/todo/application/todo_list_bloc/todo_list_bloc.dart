@@ -12,7 +12,6 @@ part 'todo_list_state.dart';
 @injectable
 class TodoListBloc extends Bloc<TodoListEvent, TodoListState> {
   TodoListBloc(this._todoRepository) : super(const TodoListState()) {
-    on<TodoListViewChanged>(_onTodoListViewChanged);
     on<TodoListWatchRequested>(_onTodoListWatchRequested);
     on<TodoListUpdated>(_onTodoListUpdated);
   }
@@ -29,13 +28,6 @@ class TodoListBloc extends Bloc<TodoListEvent, TodoListState> {
         add(TodoListUpdated(todoList));
       }
     });
-  }
-
-  FutureOr<void> _onTodoListViewChanged(
-    TodoListViewChanged event,
-    Emitter<TodoListState> emit,
-  ) {
-    emit(state.copyWith(isGridView: event.isGridView));
   }
 
   FutureOr<void> _onTodoListWatchRequested(

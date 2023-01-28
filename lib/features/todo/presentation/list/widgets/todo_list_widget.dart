@@ -9,42 +9,24 @@ class TodoListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverPadding(
+    return Padding(
       padding: const EdgeInsets.all(SizeConstants.bodyPadding),
-      sliver: BlocBuilder<TodoListBloc, TodoListState>(
+      child: BlocBuilder<TodoListBloc, TodoListState>(
         buildWhen: (previous, current) =>
-            previous.todoList.length != current.todoList.length ||
-            current.isGridView != previous.isGridView,
+            previous.todoList.length != current.todoList.length,
         builder: (context, state) {
           if (state.todoList.isEmpty) {
-            return const SliverToBoxAdapter(
-              child: Center(
-                child: Text('Todo list is empty'),
-              ),
+            return const Center(
+              child: Text('Todo list is empty'),
             );
           }
-          return SliverGrid(
-            gridDelegate: state.isGridView
-                ? const SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 200,
-                    mainAxisExtent: 230,
-                    crossAxisSpacing: SizeConstants.bodyPadding,
-                    mainAxisSpacing: SizeConstants.bodyPadding,
-                  )
-                : const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 1,
-                    childAspectRatio: 2.2,
-                    mainAxisSpacing: SizeConstants.bodyPadding,
-                  ),
-            delegate: SliverChildBuilderDelegate(
-              childCount: state.todoList.length,
-              (context, index) {
-                return TodoTile(
-                  todo: state.todoList.elementAt(index),
-                  isGrid: state.isGridView,
-                );
-              },
-            ),
+          return ListView.builder(
+            itemCount: state.todoList.length,
+            itemBuilder: (context, index) {
+              return TodoTile(
+                todo: state.todoList.elementAt(index),
+              );
+            },
           );
         },
       ),
