@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class AppTheme {
   const AppTheme._();
@@ -20,6 +21,11 @@ class AppTheme {
     return ThemeData.from(
       colorScheme: colorScheme,
     ).copyWith(
+      appBarTheme: AppBarTheme(
+        systemOverlayStyle: SystemUiOverlayStyle.light.copyWith(
+          statusBarColor: Colors.transparent,
+        ),
+      ),
       cardTheme: CardTheme(
         elevation: 8,
         shadowColor: Colors.black26,
