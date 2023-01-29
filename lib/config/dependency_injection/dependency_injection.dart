@@ -9,10 +9,10 @@ final getIt = GetIt.instance;
 @InjectableInit()
 Future<void> configureDependencies() async {
   await Hive.initFlutter();
-  await _registerHiveTypeAdapters();
+  await registerHiveTypeAdapters();
   await getIt.init();
 }
 
-Future<void> _registerHiveTypeAdapters() async {
+Future<void> registerHiveTypeAdapters() async {
   Hive.registerAdapter(TodoDtoAdapter());
 }
