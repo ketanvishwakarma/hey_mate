@@ -5,7 +5,7 @@ import 'package:equatable/equatable.dart';
 import 'package:hey_mate/constants/app_constants.dart';
 import 'package:hey_mate/features/todo/domain/entities/todo/todo.dart';
 import 'package:hey_mate/features/todo/domain/enums/todo_status/todo_status.dart';
-import 'package:hey_mate/features/todo/domain/repositories/todo_repository.dart';
+import 'package:hey_mate/features/todo/data/repositories/todo_repository.dart';
 import 'package:injectable/injectable.dart';
 
 part 'todo_add_event.dart';

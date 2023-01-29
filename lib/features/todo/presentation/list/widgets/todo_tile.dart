@@ -7,7 +7,7 @@ import 'package:hey_mate/constants/size_constants.dart';
 import 'package:hey_mate/features/todo/application/todo/todo_bloc.dart';
 import 'package:hey_mate/features/todo/domain/entities/todo/todo.dart';
 import 'package:hey_mate/features/todo/domain/enums/todo_status/todo_status.dart';
-import 'package:hey_mate/features/todo/domain/repositories/todo_repository.dart';
+import 'package:hey_mate/features/todo/data/repositories/todo_repository.dart';
 import 'package:hey_mate/features/todo/presentation/list/widgets/duration_and_button_widget.dart';
 
 class TodoTile extends StatelessWidget {

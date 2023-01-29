@@ -17,7 +17,7 @@ import 'package:hey_mate/features/todo/data/local_sources/todo_local_source.dart
     as _i5;
 import 'package:hey_mate/features/todo/data/repositories/todo_repository_imp.dart'
     as _i8;
-import 'package:hey_mate/features/todo/domain/repositories/todo_repository.dart'
+import 'package:hey_mate/features/todo/data/repositories/todo_repository.dart'
     as _i7;
 import 'package:hive/hive.dart' as _i6;
 import 'package:hive_flutter/hive_flutter.dart' as _i3;
